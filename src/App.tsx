@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
+import About from './components/About'
 import './App.css';
 import './nav.scss'
 
@@ -12,15 +13,20 @@ class App extends Component {
           <nav role="full-horizontal" className="nav">
             <ul>
               <li>
-                <a href="/">Home</a>
+                <NavLink to="/" exact>Home</NavLink>
               </li>
               <li>
-                <a href="/about">About</a>
+                <NavLink to="/about">About</NavLink>
+              </li>
+              <li>
+                <NavLink to="/news">News</NavLink>
               </li>
             </ul>
           </nav>
-          <Route path="/" exact render={() => <h1>Home Page</h1>} />
         </div>
+
+        <Route path="/" exact render={() => <h1>Home Page</h1>} />
+        <Route path="/about" component={ About } />
       </div>
     );
   }
