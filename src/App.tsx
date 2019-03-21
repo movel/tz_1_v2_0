@@ -1,32 +1,24 @@
-import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom'
-import About from './components/About'
+import * as React from 'react';
 import './App.css';
-import './nav.scss'
 
-class App extends Component {
-  render() {
+import Hello from './components/Hello';
+import StatefulHello from './components/StatefulHello'
+
+import logo from './logo.svg';
+
+class App extends React.Component {
+  public render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h1>Тестовое задание ver.2.0</h1>
-          <nav role="full-horizontal" className="nav">
-            <ul>
-              <li>
-                <NavLink to="/" exact>Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about">About</NavLink>
-              </li>
-              <li>
-                <NavLink to="/news">News</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <Route path="/" exact render={() => <h1>Home Page</h1>} />
-        <Route path="/about" component={ About } />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <Hello name="TypeScript" enthusiasmLevel={10} />
+        <StatefulHello />
       </div>
     );
   }
