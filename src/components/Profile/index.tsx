@@ -4,8 +4,8 @@ class index extends Component {
   render() {
     return (
       <div>
-        <h1>NEWS PAGE</h1>
-        <img src="img/news.jpg" alt="news" />
+        <h1>PROFILE PAGE</h1>
+        <img src="img/profile.jpg" alt="profile" />
       </div>
     );
   }

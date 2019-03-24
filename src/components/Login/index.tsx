@@ -4,7 +4,7 @@ class index extends Component {
   render() {
     return (
       <div>
-        <h1>ABOUT PAGE</h1>
+        <h1>LOGIN</h1>
       </div>
     );
   }

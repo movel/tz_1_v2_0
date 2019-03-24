@@ -3,8 +3,9 @@ import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home'
-import About from './components/About'
+import Login from './components/Login'
 import News from './components/News'
+import Profile from './components/Profile'
 
 type Props = {
   
@@ -28,19 +29,26 @@ class App extends React.Component<Props, State> {
               <NavLink to="/" exact>HOME</NavLink>
             </li>
             <li>
-              <NavLink to="/about">ABOUT</NavLink>
+              <NavLink to="/login">LOGIN</NavLink>
             </li>
             <li>
               <NavLink to="/news">NEWS</NavLink>
+            </li>
+            <li>
+              <NavLink to="/profile">PROFILE</NavLink>
             </li>
           </ul>
         </nav>
 
         <hr />
-
-        <Route path="/" exact component={ Home } />
-        <Route path="/about" component={ About } />
-        <Route path="/news" component={ News } />
+        
+        <div className="page">
+          <Route path="/" exact component={ Home } />
+          <Route path="/login" exact component={ Login } />
+          <Route path="/news" component={ News } />
+          <Route path="/profile" component={ Profile } />
+        </div> 
+        
       </div>
     );
   }

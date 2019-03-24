@@ -23,6 +23,17 @@
   color: #61dafb;
 }
 
+#id {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
