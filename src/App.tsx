@@ -4,7 +4,7 @@ import './App.css';
 
 import Home from './components/Home'
 import Login from './components/Login'
-import News from './components/News'
+import { News } from './components/News/News'
 import Profile from './components/Profile'
 
 type Props = {
