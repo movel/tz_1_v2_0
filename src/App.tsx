@@ -8,7 +8,8 @@ import { News } from './components/News/News'
 import Profile from './components/Profile'
 
 type Props = {
-  
+  name: string,
+  site: string,
 };
 
 type State = {
@@ -42,6 +43,10 @@ class App extends React.Component<Props, State> {
 
         <hr />
         
+        <p> {this.props.name} { this.props.site } </p>
+
+        <hr />
+        
         <div className="page">
           <Route path="/" exact component={ Home } />
           <Route path="/login" exact component={ Login } />
@@ -54,4 +59,8 @@ class App extends React.Component<Props, State> {
   }
 }
 
-export default App;
+const RoutedApp = () => {
+  return <App name="Max Frontend" site="maxpfrontend.ru" />
+}
+
+export { RoutedApp };
