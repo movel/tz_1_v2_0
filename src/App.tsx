@@ -5,23 +5,15 @@ import './App.css';
 import Home from './components/Home'
 import Login from './components/Login'
 import { News } from './components/News/News'
-import Profile from './components/Profile'
+import { About } from './components/About/About'
 
-type Props = {
-  name: string,
-  site: string,
-};
+interface IAppProps {
+  name: string;
+  site: string;
+}
 
-type State = {
-  count: number;
-};
+const App: React.FC<IAppProps> = props => {
 
-class App extends React.Component<Props, State> {
-  readonly state: State = {
-    count: 0,
-  };
-
-  render() {
     return (
       <div>
         <nav className="nav">
@@ -43,7 +35,11 @@ class App extends React.Component<Props, State> {
 
         <hr />
         
-        <p> {this.props.name} { this.props.site } </p>
+        <p> Автор: { props.name } | Сайт: { props.site } </p>
+
+        <hr />
+
+        {props.children}
 
         <hr />
         
@@ -51,16 +47,20 @@ class App extends React.Component<Props, State> {
           <Route path="/" exact component={ Home } />
           <Route path="/login" exact component={ Login } />
           <Route path="/news" component={ News } />
-          <Route path="/profile" component={ Profile } />
+          <Route path="/profile/:source" component={ About } />
+          <Route path="/profile" component={ About } />
         </div> 
         
       </div>
     );
-  }
 }
 
 const RoutedApp = () => {
-  return <App name="Max Frontend" site="maxpfrontend.ru" />
+  return (
+    <App name="Max Frontend" site="maxpfrontend.ru">
+      
+    </App>
+  )
 }
 
 export { RoutedApp };
