@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home'
 import Login from './components/Login'
 import { News } from './components/News/News'
 import { About } from './components/About/About'
+import { PageNotFound } from './components/PageNotFound/PageNotFound'
 
 interface IAppProps {
   name: string;
@@ -42,15 +43,19 @@ const App: React.FC<IAppProps> = props => {
         {props.children}
 
         <hr />
-        
         <div className="page">
-          <Route path="/" exact component={ Home } />
-          <Route path="/login" exact component={ Login } />
-          <Route path="/news" component={ News } />
-          <Route path="/profile/:source" component={ About } />
-          <Route path="/profile" component={ About } />
-        </div> 
-        
+          <Switch>
+            
+              <Route path="/" exact component={ Home } />
+              <Route path="/login" exact component={ Login } />
+              <Route path="/news" component={ News } />
+              <Route path="/profile/:source" component={ About } />
+              <Route path="/profile" component={ About } />
+            
+              <Route component={ PageNotFound } />
+            
+          </Switch>
+        </div>
       </div>
     );
 }
