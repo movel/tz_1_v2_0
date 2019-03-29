@@ -1,7 +1,4 @@
 import { IUserIdentity } from '../models/user'
-import { createBrowserHistory } from 'history'
-
-const history = createBrowserHistory()
 
 // вновь определяем интерфейс для ответа от бэкэнда
 // где в качестве data - указываем any (то есть, что угодно)
@@ -65,5 +62,5 @@ export const checkAuthStatus = (): boolean => {
 
 export const logout = (): void => {
   window.localStorage.removeItem('tstz.authenticated')
-  history.push('/')
+  window.location.href = '/'
 }

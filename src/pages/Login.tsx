@@ -5,13 +5,10 @@ import { RouteComponentProps } from 'react-router-dom'
 import { authenticate } from '../api/auth'
 import { IUserIdentity } from '../models/user'
 
-import { createBrowserHistory } from 'history'
-
-const history = createBrowserHistory()
 
 // компонент не принимает ничего, кроме свойств из роутера
 // поэтому указываем их сразу в < >
-const Login: React.FC<RouteComponentProps> = () => {
+const Login: React.FC<RouteComponentProps> = props => {
 
   // useStaet так же, как и useEffect - дженерик,
   // поэтому указываем тип переменной, которая будет участвовать в state
@@ -41,7 +38,8 @@ const Login: React.FC<RouteComponentProps> = () => {
     e.preventDefault()
     authenticate(user)
       .then(() => {
-        history.push('/profile') // переадресация на profile
+        // window.location.href = ('/profile'); // переадресация на profile
+        props.history.push('/profile')
       })
       .catch(err => {
         if (err.errorText) {
