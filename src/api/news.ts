@@ -13,14 +13,14 @@ const fakeData = [
     text: 'В данном конспекте создается простое CRUD-приложение без бэкэнда',
     link:
       'https://maxpfrontend.ru/perevody/delaem-crud-prilozhenie-s-pomoschyu-react-hooks/',
-    timestamp: new Date('01-15-2019'),
+    timestamp: new Date('2019-01-15'),
   },
   {
     id: 2,
     title: 'Знакомство с React hooks',
     text: 'Из статьи можно узнать как использовать useState и useEffect хуки',
     link: 'https://maxpfrontend.ru/perevody/znakomstvo-s-react-hooks/',
-    timestamp: new Date('01-06-2019'),
+    timestamp: new Date('2019-01-06'),
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const fakeData = [
     text: 'Как авторизоваться через Google Sign In по документации',
     link:
       'https://maxpfrontend.ru/vebinary/avtorizatsiya-s-pomoschyu-google-sign-in/',
-    timestamp: new Date('11-02-2018'),
+    timestamp: new Date('2018-02-11'),
   },
 ]
 
