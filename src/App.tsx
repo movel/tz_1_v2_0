@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, RouteComponentProps } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home'
+import { Authenticated } from './components/common/Authenticated'
 import { Login } from './pages/Login'
 import { News } from './pages/News'
 import { About } from './components/About/About'
@@ -49,7 +50,6 @@ const App: React.FC<IAppProps> = props => {
               <Route path="/" exact component={ Home } />
               <Route path="/login" exact component={ Login } />
               <Route path="/news" component={ News } />
-              <Route path="/profile/:source" component={ About } />
               <Route path="/profile" component={ About } />
             
               <Route component={ PageNotFound } />
