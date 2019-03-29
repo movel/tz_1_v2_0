@@ -4,7 +4,7 @@ import './App.css';
 
 import Home from './components/Home'
 import Login from './components/Login'
-import { News } from './components/News/News'
+import { News } from './pages/News'
 import { About } from './components/About/About'
 import { PageNotFound } from './components/PageNotFound/PageNotFound'
 
