@@ -5,7 +5,7 @@ interface IAboutProps extends RouteComponentProps<{ source?: string }> {
 
 }
 
-const About: React.FC<IAboutProps> = props => {
+const Profile: React.FC<IAboutProps> = props => {
   return (
     <div>
       <h1>PROFILE PAGE</h1>
@@ -15,4 +15,4 @@ const About: React.FC<IAboutProps> = props => {
   );
 }
 
-export { About };
+export { Profile };

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { RouteComponentProps } from 'react-router-dom'
 
-import { authenticate } from '../api/auth'
+import { authenticate, checkAuthStatus } from '../api/auth'
 import { IUserIdentity } from '../models/user'
 
 
@@ -52,23 +52,38 @@ const Login: React.FC<RouteComponentProps> = props => {
   }
 
   return (
-    <>
-      <h2>Login</h2>
-      <form onSubmit={onSubmit}>
-        {notification ? <p>{notification}</p> : null}
-        <input
-          type="text"
-          value={user.username}
-          onChange={onInputChange('username')}
-        />
-        <input
-          type="text"
-          value={user.password}
-          onChange={onInputChange('password')}
-        />
-        <button>Login</button>
-      </form>
-    </>
+    
+      <div>
+        {
+          checkAuthStatus() && (
+            <h4>
+              You are logged in! COOL!!!
+            </h4>
+
+          )
+        }
+        {
+          !checkAuthStatus() && (
+            <>
+              <h2>Login</h2>
+              <form onSubmit={onSubmit}>
+                {notification ? <p>{notification}</p> : null}
+                <input
+                  type="text"
+                  value={user.username}
+                  onChange={onInputChange('username')}
+                />
+                <input
+                  type="password"
+                  value={user.password}
+                  onChange={onInputChange('password')}
+                />
+                <button>Login</button>
+              </form>
+            </>
+          )
+        }        
+      </div>    
   )
 }
 

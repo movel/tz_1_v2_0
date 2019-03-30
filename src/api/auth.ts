@@ -50,7 +50,8 @@ export const authenticate = (data: IUserIdentity): Promise<IAuthResponse> => {
 // вовзвращает true или false (тип boolean)
 
 export const checkAuthStatus = (): boolean => {
-  if (localStorage.getItem('tstz.authenticated')) {
+  const isAuthenticated = localStorage.getItem('tstz.authenticated')
+  if (isAuthenticated === 'true') {
     return true
   } else {
     return false

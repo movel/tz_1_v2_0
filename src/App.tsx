@@ -1,13 +1,16 @@
 import * as React from 'react';
-import { Route, NavLink, Switch, RouteComponentProps } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home'
 import { Authenticated } from './components/common/Authenticated'
 import { Login } from './pages/Login'
 import { News } from './pages/News'
-import { About } from './components/About/About'
+import { Profile } from './components/Profile/Profile'
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute'
 import { PageNotFound } from './components/PageNotFound/PageNotFound'
+
+import { checkAuthStatus, logout } from './api/auth'
 
 interface IAppProps {
   name: string;
@@ -23,37 +26,51 @@ const App: React.FC<IAppProps> = props => {
             <li>
               <NavLink to="/" exact>HOME</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">LOGIN</NavLink>
-            </li>
+              {
+                !checkAuthStatus() && (
+                  <li>
+                    <NavLink
+                      to="/login"
+                    >
+                      LOGIN
+                    </NavLink>
+                  </li>
+                )
+              }
+              {
+                checkAuthStatus() && (
+                  <>
+                    <li>
+                      <NavLink
+                        to="/"
+                        onClick={logout}
+                      >
+                        LOGOUT
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/profile">PROFILE</NavLink>
+                    </li>
+                  </>
+                )
+              }
             <li>
               <NavLink to="/news">NEWS</NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">PROFILE</NavLink>
             </li>
           </ul>
         </nav>
 
         <hr />
+
+        <p>Autor: {props.name} | {props.site}</p>
         
-        <p> Автор: { props.name } | Сайт: { props.site } </p>
-
-        <hr />
-
-        {props.children}
-
-        <hr />
         <div className="page">
           <Switch>
-            
               <Route path="/" exact component={ Home } />
               <Route path="/login" exact component={ Login } />
               <Route path="/news" component={ News } />
-              <Route path="/profile" component={ About } />
-            
-              <Route component={ PageNotFound } />
-            
+              <PrivateRoute path="/profile" component={ Profile } /> 
+              <Route component={ PageNotFound } /> 
           </Switch>
         </div>
       </div>
@@ -62,9 +79,7 @@ const App: React.FC<IAppProps> = props => {
 
 const RoutedApp = () => {
   return (
-    <App name="Max Frontend" site="maxpfrontend.ru">
-      
-    </App>
+      <App name="Nick" site="http://google.com" />
   )
 }
 
