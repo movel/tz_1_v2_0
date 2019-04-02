@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import { RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps, Route } from 'react-router-dom'
 
-import { authenticate, checkAuthStatus } from '../api/auth'
+import { authenticate, checkAuthStatus, logout } from '../api/auth'
 import { IUserIdentity } from '../models/user'
 
 
@@ -38,7 +38,6 @@ const Login: React.FC<RouteComponentProps> = props => {
     e.preventDefault()
     authenticate(user)
       .then(() => {
-        // window.location.href = ('/profile'); // переадресация на profile
         props.history.push('/profile')
       })
       .catch(err => {
@@ -56,10 +55,12 @@ const Login: React.FC<RouteComponentProps> = props => {
       <div>
         {
           checkAuthStatus() && (
-            <h4>
-              You are logged in! COOL!!!
-            </h4>
-
+            <>
+              <h4>
+                You are logged in! COOL!!!
+              </h4>
+              <button onClick={logout}>Log Out</button>
+            </>
           )
         }
         {
