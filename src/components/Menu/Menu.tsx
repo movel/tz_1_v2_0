@@ -1,35 +1,66 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { checkAuthStatus, logout } from '../../api/auth';
+import { Button, ButtonToolbar } from 'react-bootstrap'
 
-interface Props {
+import './Menu.sass'
+
+const goTo = (route: string, props: any): any => {
+  props.history.replace(`/${route}`)
+}
+
+const Menu: React.FC<any> = props => {
+
+    return (
+      <div className="menu">
+        <ButtonToolbar>
+          <Button
+            className="button__menu"
+            variant="primary"
+            onClick={() => goTo('home', props)}
+          >
+            На главную
+          </Button>
+          <Button
+            className="button__menu"
+            variant="primary"
+            onClick={() => goTo('news', props)}
+          >
+            Новости
+          </Button>
+          <Button
+            className="button__menu"
+            variant="primary"
+            onClick={() => goTo('profile', props)}
+          >
+            Профиль
+          </Button>
+          {
+            !checkAuthStatus() && (
+                <Button
+                  className="button__menu"
+                  variant="primary"
+                  onClick={() => goTo('login', props)}
+                >
+                  Log In
+                </Button>
+              )
+          }
+          {
+            checkAuthStatus() && (
+                <Button
+                  className="button__menu"
+                  variant="primary"
+                  onClick={() => logout()}
+                >
+                  Log Out
+                </Button>
+              )
+          }
+        </ButtonToolbar>
+      </div>
+    );
   
 }
 
-const Menu: React.FC<Props> = () => {          
-    return (
-      <div>
-        <nav className="nav">
-          <ul>
-            <li>
-              <NavLink to="/" exact>HOME</NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/login"
-              >
-                LOGIN
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">PROFILE</NavLink>
-            </li>
-            <li>
-              <NavLink to="/news">NEWS</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    );
-  }
-
-export { Menu };
+export default withRouter(Menu);

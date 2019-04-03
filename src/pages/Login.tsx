@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { RouteComponentProps, Route } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom'
 
 import { authenticate, checkAuthStatus, logout } from '../api/auth'
 import { IUserIdentity } from '../models/user'
@@ -59,7 +59,6 @@ const Login: React.FC<RouteComponentProps> = props => {
               <h4>
                 You are logged in! COOL!!!
               </h4>
-              <button onClick={logout}>Log Out</button>
             </>
           )
         }

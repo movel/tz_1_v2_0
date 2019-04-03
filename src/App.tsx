@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home'
-import { Menu } from './components/Menu/Menu'
+import Menu from './components/Menu/Menu'
 import { Login } from './pages/Login'
 import { News } from './pages/News'
 import { Profile } from './components/Profile/Profile'
@@ -31,6 +31,7 @@ const App: React.FC<IAppProps> = props => {
         <div className="page">
           <Switch>
               <Route path="/" exact component={ Home } />
+              <Route path="/home" exact component={ Home } />
               <Route path="/login" exact component={ Login } />
               <Route path="/news" component={ News } />
               <PrivateRoute path="/profile" component={ Profile } /> 
