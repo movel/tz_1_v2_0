@@ -10,12 +10,13 @@ import { Profile } from './components/Profile/Profile'
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute'
 import { PageNotFound } from './components/PageNotFound/PageNotFound'
 
-interface IAppProps {
+interface IAppProps extends RouteComponentProps {
   name?: string;
   site?: string;
 }
 
-const App: React.FC<IAppProps> = props => {
+
+const App = (props: IAppProps) => {
 
     return (
       <div>
@@ -42,9 +43,9 @@ const App: React.FC<IAppProps> = props => {
     );
 }
 
-const RoutedApp = () => {
+const RoutedApp = (props: any) => {
   return (
-      <App />
+      <App {...props} name={'name'} />
   )
 }
 
