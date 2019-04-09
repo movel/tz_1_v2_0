@@ -25,7 +25,7 @@ const App = (props: IAppProps) => {
         <hr />
 
         {
-          !!name ? <p>Autor: {props.name} | {props.site}</p> : null
+          !!props.name ? <p>Autor: {props.name} | {props.site}</p> : null
         }
         
         
@@ -45,7 +45,7 @@ const App = (props: IAppProps) => {
 
 const RoutedApp = (props: any) => {
   return (
-      <App {...props} name={'name'} />
+      <App {...props} />
   )
 }
 

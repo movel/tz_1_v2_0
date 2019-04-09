@@ -2,13 +2,12 @@ import * as React from 'react'
 
 import { RouteComponentProps } from 'react-router-dom'
 
-import { authenticate, checkAuthStatus, logout } from '../api/auth'
+import { authenticate, checkAuthStatus } from '../api/auth'
 import { IUserIdentity } from '../models/user'
-
 
 // компонент не принимает ничего, кроме свойств из роутера
 // поэтому указываем их сразу в < >
-const Login: React.FC<RouteComponentProps> = props => {
+const Login = (props: RouteComponentProps) => {
 
   // useStaet так же, как и useEffect - дженерик,
   // поэтому указываем тип переменной, которая будет участвовать в state
@@ -49,6 +48,8 @@ const Login: React.FC<RouteComponentProps> = props => {
         }
       })
   }
+
+
 
   return (
     
