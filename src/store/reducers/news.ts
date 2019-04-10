@@ -1,9 +1,4 @@
-
-const initialState = {
-  news: [],
-}
-
-export default function newsReducer(state = initialState, action: any) {
+export default function newsReducer(state: any, action: any) {
   
   switch(action.type) {
     default:
