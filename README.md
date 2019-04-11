@@ -8,6 +8,7 @@
   *  использованы react-hooks
   *  использован Redux
   *  использован TypeScript
+  *  [Demo project](http://movel.byethost14.com) 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
