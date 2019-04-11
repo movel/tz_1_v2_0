@@ -6,10 +6,9 @@ import Home from './components/Home'
 import Menu from './components/Menu/Menu'
 import { Login } from './pages/Login'
 import { News } from './pages/News'
-import { Profile } from './components/Profile/Profile'
+import { Profile } from './pages/Profile'
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute'
 import { PageNotFound } from './components/PageNotFound/PageNotFound'
-import Person from './components/Person/Person'
 
 interface IAppProps extends RouteComponentProps {
   name?: string;

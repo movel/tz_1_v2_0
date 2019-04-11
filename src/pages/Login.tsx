@@ -58,7 +58,7 @@ const Login = (props: RouteComponentProps) => {
           checkAuthStatus() && (
             <>
               <h4>
-                You are logged in! COOL!!!
+                You are logged in!
               </h4>
             </>
           )
