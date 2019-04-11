@@ -1,3 +1,14 @@
+## О себе
+
+Изучаю ( с переменным успехом) ReactJS в свободное от работы время :-)
+
+## Про приложение
+
+  **  выполнен базовый функционал
+  **  использованы react-hooks
+  **  использован Redux
+  **  использован TypeScript
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
