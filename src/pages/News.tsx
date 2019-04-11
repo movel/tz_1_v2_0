@@ -23,6 +23,7 @@ function News() {
             });
           } catch (e) {
             d({
+              payload: new Error(e),
               type: 'fetchNewsError',
             });
             console.warn('Getting news problem', e)
