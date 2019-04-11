@@ -4,10 +4,10 @@
 
 ## Про приложение
 
-  **  выполнен базовый функционал
-  **  использованы react-hooks
-  **  использован Redux
-  **  использован TypeScript
+  *  выполнен базовый функционал
+  *  использованы react-hooks
+  *  использован Redux
+  *  использован TypeScript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
