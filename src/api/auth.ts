@@ -35,11 +35,13 @@ export const authenticate = (data: IUserIdentity): Promise<IAuthResponse> => {
         errorText: 'incorrect_login_or_password',
       })
     }
-    window.localStorage.setItem('tstz.authenticated', 'true')
-    resolve({
-      status: 200,
-      data: 'ok', // так как наш псевдо-бэкэнд отвечает string, мы можем исправить в IAuthResponse [1] any на string
-    })
+    else {
+      window.localStorage.setItem('tstz.authenticated', 'true')
+      resolve({
+        status: 200,
+        data: 'ok', // так как наш псевдо-бэкэнд отвечает string, мы можем исправить в IAuthResponse [1] any на string
+      })
+    }
   })
 
   return promise
