@@ -6,13 +6,8 @@ import { createStore } from 'react-hooks-global-state';
 import { reduxDevToolsExt } from 'react-hooks-global-state/src/devtools';
 
 import { initialState } from '../reducers/news'
-import { reducer } from '../reducers/rootReducers'
+import { rootReducers } from '../reducers/rootReducers'
 
-export const { GlobalStateProvider, dispatch, useGlobalState } = createStore(
-  reducer,
-  initialState,
-  compose(
-    applyMiddleware(reduxThunk, reduxLogger),
-    reduxDevToolsExt(),
-  ),
-);
+export const state = (): any => {
+  return null;
+}

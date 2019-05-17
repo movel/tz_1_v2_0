@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom'
 import { checkAuthStatus, logout } from '../../api/auth';
 
 import './Menu.sass'
 import './Menu.scss'
 
 
-const goTo = (route: string, props: any): any => {
+const goTo = (route: string, props: RouteComponentProps): any => {
   props.history.replace(`/${route}`)
 }
 
-const Menu: React.FC<any> = props => {
+const Menu = (props: RouteComponentProps) => {
 
     return (
       <div className="menu">
@@ -52,6 +53,12 @@ const Menu: React.FC<any> = props => {
                 </button>
               )
           }
+          <button
+            className="button__menu"
+            onClick={() => goTo('page-not-found', props)}
+          >
+            404
+          </button>
       </div>
     );
   
